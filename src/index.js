@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Guard from './components/Guard';
+import PostEditor from './pages/batman/posteditor/PostEditor';
+import Login from './pages/batman/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +15,10 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />   
+      <Route path="/login" element={<Login />} />
+      <Route path="/batman" element={<Guard />}>
+        <Route path="editor" element={<PostEditor/>}/>
+      </Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
