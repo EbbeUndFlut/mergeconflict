@@ -5,7 +5,19 @@ const Login = (props) => {
     const [pass, setPass] = useState('')
 
     const login = () =>{
-
+        console.log('in login');
+        fetch('http://localhost:9898/api/login',{
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({username:username,pass:pass})
+            }
+        )
+        .then( response => response.json())
+        .then( data => console.log(data))
+        .catch(err => console.log(err))
     }
     return (
         <main className="bg-mainpurple flex h-screen justify-center">
@@ -14,7 +26,7 @@ const Login = (props) => {
                 <input className="outline outline-1 text-xl py-1" type="text" onChange={(e)=>setUsername(e.target.value)}/>
                 <label className="mt-5">Passwort</label>
                 <input className="outline outline-1 text-xl py-1" type="password" onChange={e => setPass(e.target.value)} />
-                <button className="bg-mainpurple mt-5 py-2 text-white">Anmelden</button>
+                <button className="bg-mainpurple mt-5 py-2 text-white" onClick={login}>Anmelden</button>
             </section>
         </main>
     )
