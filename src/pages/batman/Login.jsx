@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Login = (props) => {
     const [username, setUsername] = useState('')
     const [pass, setPass] = useState('')
+    const navigate = useNavigate()
 
     const login = () =>{
         console.log('in login');
@@ -15,9 +17,11 @@ const Login = (props) => {
             body: JSON.stringify({username:username,pass:pass})
             }
         )
-        .then( response => response.json())
-        .then( data => console.log(data))
-        .catch(err => console.log(err))
+        .then( response => {
+            if(response.status === 200)navigate('/batman/batcave')
+            response.json()})
+        // .then( data => console.log(data))
+        // .catch(err => console.log(err))
     }
     return (
         <main className="bg-mainpurple flex h-screen justify-center">

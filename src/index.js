@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Guard from './components/Guard';
 import PostEditor from './pages/batman/posteditor/PostEditor';
 import Login from './pages/batman/Login';
+import Dashboard from './pages/batman/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
       <Route path="/" element={<Home />} />   
       <Route path="/login" element={<Login />} />
       <Route path="/batman" element={<Guard />}>
+        <Route path="batcave" element={<Dashboard />}/>
         <Route path="editor" element={<PostEditor/>}/>
       </Route>
     </Routes>
