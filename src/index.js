@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,6 +8,7 @@ import Guard from './components/Guard';
 import PostEditor from './pages/batman/posteditor/PostEditor';
 import Login from './pages/batman/Login';
 import Dashboard from './pages/batman/Dashboard';
+import SearchResult from './pages/SearchResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +16,7 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />   
+      <Route path="/search/:term" element={<SearchResult />}/>
       <Route path="/login" element={<Login />} />
       <Route path="/batman" element={<Guard />}>
         <Route path="batcave" element={<Dashboard />}/>

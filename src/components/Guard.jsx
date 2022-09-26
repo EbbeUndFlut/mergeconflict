@@ -6,12 +6,15 @@ const Guard = (props) => {
     const navigate = useNavigate()
     
     useEffect(async()=> {
-        const result = await fetch('http://localhost:9898/api/validate', {
+        const getSome = async() => {
+          const result = await fetch('http://localhost:9898/api/validate', {
             method: 'POST',
             credentials: 'include'
         })
         const data = await result.json()
-        setIsLoggedIn(data.state)
+        setIsLoggedIn(data.state)  
+        }
+        await getSome()
     }, [])
 
     const check = () =>{
