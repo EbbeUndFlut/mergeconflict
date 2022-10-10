@@ -1,4 +1,7 @@
 import { useState } from "react"
+import BrokeTextEditor from "../../components/broketexteditor/BrokeTextEditor"
+import TextEditor from "../../components/broketexteditor/TextEditor"
+import AssetsGalary from "../../components/dashboard/AssetsGalary"
 import DashboardNavigation from "../../components/dashboard/DashboardNavigation"
 import PostEditor from "./posteditor/PostEditor"
 
@@ -7,9 +10,9 @@ const Dashboard = (props) => {
 
     const selectComponent = () => {
         switch(nav) {
-            case 0: return <h1>Hallo</h1>
-                    break;
+            case 0: return <TextEditor />
             case 1: return <PostEditor></PostEditor>
+            case 2: return <AssetsGalary/>
         }
     }
     return (
