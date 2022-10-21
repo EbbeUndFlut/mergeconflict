@@ -4,25 +4,43 @@ const { useState } = require("react")
 const AssetsAdd = () => {
     const [file, setFile] = useState(null)
     const [src, setSrc] = useState(null)
+    const [base64, setBase64] = useState('')
 
-    useEffect(()=>{
-        if(file)
+    useEffect(() => {
+        if (file) {
             setSrc(URL.createObjectURL(file))
-    },[file])
+            const reader = new FileReader()
+            reader.onload = handleReaderLoaded
+            reader.readAsDataURL(file)
 
-    const upload = () =>{
-        const form = new FormData()
-        form.append('picture', file)
-        fetch('http://localhost/api/assets', {
+
+        }
+
+    }, [file])
+
+    const handleReaderLoaded = (event) => {
+        setBase64(event.target.result)
+    }
+
+    const upload = () => {
+        console.log(base64);
+        const asset = {
+            name: file.name,
+            file: base64
+        }
+        fetch('http://localhost:9898/api/assets', {
             method: 'POST',
-            credentials:'include',
-            body:form
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(asset)
         })
     }
     return (
         <div>
             {src &&
-            <img src={src} />
+                <img src={src} alt="" />
             }
             <input className="hidden" type="file" name="" id="asset" onChange={(e) => setFile(e.target.files[0])} />
             <label className="border-1 border-red-500 rounded-xl" htmlFor="asset">ADD</label>
@@ -30,6 +48,6 @@ const AssetsAdd = () => {
 
         </div>
     )
- }
+}
 
- export default AssetsAdd   
+export default AssetsAdd   
