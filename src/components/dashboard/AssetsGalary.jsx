@@ -3,7 +3,7 @@ import AssetShowCase from "./AssetShowCase"
 
 const AssetsGalary = () => {
     return (
-        <section className="p-8">
+        <section className="p-8 basis-full">
             <h1>Assets</h1>
             <AssetsAdd />
             <AssetShowCase />

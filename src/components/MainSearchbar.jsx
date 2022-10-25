@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-const MainSearchBar = () => {
+const MainSearchBar = (props) => {
 
     const [item, setItem] = useState('')
 
     const search = async (event) => {
         if (event.key === 'Enter') {
             const result = await fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/search?q=' + item)
-
-            console.log(result);
+            const data = await result.json()
+            props.setpost(data)
+            console.log(data);
         }
     }
     return (

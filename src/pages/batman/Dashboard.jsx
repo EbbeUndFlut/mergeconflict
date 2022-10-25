@@ -4,6 +4,7 @@ import TextEditor from "../../components/broketexteditor/TextEditor"
 import AssetsGalary from "../../components/dashboard/AssetsGalary"
 import Category from "../../components/dashboard/category/Category"
 import DashboardNavigation from "../../components/dashboard/DashboardNavigation"
+import Overview from "../../components/dashboard/Overview"
 import PostEditor from "./posteditor/PostEditor"
 
 const Dashboard = (props) => {
@@ -11,14 +12,14 @@ const Dashboard = (props) => {
 
     const selectComponent = () => {
         switch (nav) {
-            case 0: return <TextEditor />
-            case 1: return <PostEditor></PostEditor>
+            case 0: return <Overview />
+            case 1: return <TextEditor />
             case 2: return <AssetsGalary />
             case 3: return <Category />
         }
     }
     return (
-        <main className="bg-mainpurple min-h-screen flex flex-row">
+        <main className="bg-mainpurple min-h-screen flex flex-row justify-between">
             <DashboardNavigation setSelection={setNav}></DashboardNavigation>
             {selectComponent()}
         </main>
