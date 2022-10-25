@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import Assets from "./Assets"
 
 const AssetShowCase = (props) => {
     const [assets, setAssets] = useState([])
@@ -10,8 +11,8 @@ const AssetShowCase = (props) => {
             .then(data => setAssets(data))
     }, [])
     return (
-        <div>
-            {assets.map((item, key) => <img src={item.file} alt="" key={key} />)}
+        <div className="flex flex-row flex-wrap gap-2">
+            {assets.map((item, key) => <Assets item={item} key={key} />)}
         </div>
     )
 }
