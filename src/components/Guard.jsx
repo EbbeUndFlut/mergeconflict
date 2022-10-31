@@ -8,7 +8,7 @@ const Guard = (props) => {
 
     useEffect(() => {
         const getSome = async () => {
-            const result = await fetch('http://localhost:9898/api/validate', {
+            const result = await fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/validate', {
                 method: 'POST',
                 credentials: 'include'
             })
