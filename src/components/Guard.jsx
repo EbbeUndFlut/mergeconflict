@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import Home from "../pages/Home"
 
 const Guard = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const navigate = useNavigate()
+
 
     useEffect(() => {
         const getSome = async () => {
