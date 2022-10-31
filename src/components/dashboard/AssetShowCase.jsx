@@ -6,7 +6,7 @@ const AssetShowCase = (props) => {
     const [assets, setAssets] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:9898/api/assets')
+        fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/assets')
             .then(res => res.json())
             .then(data => setAssets(data))
     }, [])
