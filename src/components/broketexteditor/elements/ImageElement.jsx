@@ -6,7 +6,7 @@ const ImageElement = (props) => {
     const [modal, setModal] = useState(false)
     return (
         <>
-            <img onClick={() => setModal(prev => !prev)} src={src} alt="" />
+            <img className="self-center max-w-sm" onClick={() => setModal(prev => !prev)} src={src} alt="" />
             {modal &&
                 <AssetModal setsrc={setSrc} />}
         </>

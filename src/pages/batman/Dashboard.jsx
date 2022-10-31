@@ -5,6 +5,7 @@ import AssetsGalary from "../../components/dashboard/AssetsGalary"
 import Category from "../../components/dashboard/category/Category"
 import DashboardNavigation from "../../components/dashboard/DashboardNavigation"
 import Overview from "../../components/dashboard/Overview"
+import PostList from "../../components/dashboard/posts/PostList"
 import PostEditor from "./posteditor/PostEditor"
 
 const Dashboard = (props) => {
@@ -16,6 +17,7 @@ const Dashboard = (props) => {
             case 1: return <TextEditor />
             case 2: return <AssetsGalary />
             case 3: return <Category />
+            case 4: return <PostList />
         }
     }
     return (
