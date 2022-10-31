@@ -1,6 +1,5 @@
 import { useState } from "react"
 import BlogPost from "../components/BlogPost"
-import LatestBlogPosts from "../components/LatestBlogPosts"
 import MainSearchBar from "../components/MainSearchbar"
 import LineBackground from "../components/threejs/LineBackground"
 import HeroSection from "../HeroSection"

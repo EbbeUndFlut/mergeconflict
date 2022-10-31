@@ -1,12 +1,11 @@
 import { useState } from "react"
-import BrokeTextEditor from "../../components/broketexteditor/BrokeTextEditor"
 import TextEditor from "../../components/broketexteditor/TextEditor"
 import AssetsGalary from "../../components/dashboard/AssetsGalary"
 import Category from "../../components/dashboard/category/Category"
 import DashboardNavigation from "../../components/dashboard/DashboardNavigation"
 import Overview from "../../components/dashboard/Overview"
 import PostList from "../../components/dashboard/posts/PostList"
-import PostEditor from "./posteditor/PostEditor"
+
 
 const Dashboard = (props) => {
     const [nav, setNav] = useState(0)
@@ -18,6 +17,7 @@ const Dashboard = (props) => {
             case 2: return <AssetsGalary />
             case 3: return <Category />
             case 4: return <PostList />
+            default: return <Overview />
         }
     }
     return (

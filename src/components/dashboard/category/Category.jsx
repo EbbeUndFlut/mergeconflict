@@ -32,7 +32,7 @@ const Category = () => {
     }
 
     const deleteCategory = async (id) => {
-        const result = await fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/categories', {
+        await fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/categories', {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
