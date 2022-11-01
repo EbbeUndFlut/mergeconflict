@@ -28,7 +28,7 @@ const AssetsAdd = () => {
             name: file.name,
             file: base64
         }
-        fetch('http://localhost:9898/api/assets', {
+        fetch(process.env.REACT_APP_SERVER_BASE_URL + '/api/assets', {
             method: 'POST',
             credentials: 'include',
             headers: {
