@@ -61,6 +61,7 @@ const TextEditor = () => {
                 <button onClick={() => addField(0)}>H1</button>
                 <button onClick={() => addField(1)}>P</button>
                 <button onClick={() => addField(2)}>img</button>
+                <button onClick={() => addField(3)}>codsdsdssdde</button>
                 <button onClick={publish}>publish</button>
             </div>
 
